@@ -1,0 +1,13 @@
+# Activation Functions Cheat Sheet
+
+| Activation Function          | Formula                          | Output Range      | Advantages                                                                 | Disadvantages                                                          | Use Case                                   |
+|-------------------------------|----------------------------------|-------------------|----------------------------------------------------------------------------|-------------------------------------------------------------------------|--------------------------------------------|
+| **ReLU**                      | `f(x) = max(0, x)`              | `[0, ∞)`          | ◾ Computationally efficient<br>◾ Mitigates vanishing gradient<br>◾ Sparse activation | ◾ Dying ReLU problem<br>◾ Unbounded output                             | Hidden layers in deep networks             |
+| **Leaky ReLU**                | `f(x) = x if x > 0`<br>`αx otherwise` | `(-∞, ∞)`         | ◾ Solves dying ReLU                                                        | ◾ α needs manual tuning                                               | Alternative to ReLU                        |
+| **Parametric ReLU (PReLU)**   | Same as Leaky ReLU<br>with learned α | `(-∞, ∞)`         | ◾ Learns optimal slope                                                     | ◾ Risk of overfitting                                                 | Deep networks with ReLU issues             |
+| **Sigmoid**                   | `f(x) = 1/(1 + e⁻ˣ)`            | `(0, 1)`          | ◾ Good for binary classification<br>◾ Smooth gradient                      | ◾ Vanishing gradients<br>◾ Not zero-centered                          | Output layer (binary classification)       |
+| **Tanh**                      | `f(x) = (eˣ - e⁻ˣ)/(eˣ + e⁻ˣ)`  | `(-1, 1)`         | ◾ Zero-centered output<br>◾ Stronger gradient than sigmoid                 | ◾ Vanishing gradients                                                 | Hidden layers (zero-centered data)         |
+| **ELU**                       | `f(x) = x if x > 0`<br>`α(eˣ - 1) otherwise` | `(-α, ∞)`         | ◾ Smooth negative values<br>◾ Reduces bias shift                          | ◾ Computationally heavier                                            | Deep networks for fast convergence         |
+| **Softmax**                   | `f(xᵢ) = eˣⁱ/Σⱼeˣʲ`             | `(0, 1)` per class | ◾ Outputs class probabilities                                             | ◾ Sensitive to outliers                                               | Output layer (multi-class classification)  |
+
+---
